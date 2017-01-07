@@ -1,12 +1,11 @@
 name: WeatherControl
 version: 1.0.0
-main: RTG\LEET\WeatherControl
+main: RTG\LEET\Weather
 api: 2.1.0
 author: IG
 commands:
   weather:
     permission: weather.control
-    description: "Basic commands for /weather"
  permissions:
    weather.control:
     default: op
