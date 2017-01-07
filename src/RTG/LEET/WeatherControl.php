@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * All rights reserved LEET
+ * @author IG
+*/
+
 namespace RTG\LEET;
 
 use pocketmine\Player;
@@ -45,24 +50,41 @@ class WeatherControl extends PluginBase implements Listener {
 										$rain->y = $p->getY();
 										$rain->z = $p->getZ();
 										
-										$pk->evid = LevelEventPacket::EVENT_START_RAIN;
+										$rain->evid = LevelEventPacket::EVENT_START_RAIN;
 										
-										$p->dataPacket($pk);
+										$p->dataPacket($rain);
 										
-										$sender->sendMessage("You have succssfully enabled rain");
+										$sender->sendMessage("You have successfully enabled rain");
 											
 									}
 							
 								return true;
 							break;
 							
+							case "thunder":
 							
-							
-							
+								$thunder = new LevelEventPacket(); // Event
+									foreach($this->getServer()->getOnlinePlayers() as $p) {
+										
+										$thunder->x = $p->getX();
+										$thunder->y = $p->getY();
+										$thunder->z = $p->getZ();
+										
+										$thunder->evid = LevelEventPacket::EVENT_START_THUNDER;
+										
+										$p->dataPacket($thunder);
+										
+										$sender->sendMessage("You have successfully enabled thunder");
+											
+									}
+
+								return true;
+							break;
+								
 						}
 					}
 					else {
-						$sender->sendMessage("Usage: /weather < rain | sunny | clear >");
+						$sender->sendMessage("Usage: /weather < rain | thunder >");
 					}
 					
 				}
