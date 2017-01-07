@@ -6,6 +6,6 @@ author: IG
 commands:
   weather:
     permission: weather.control
- permissions:
-   weather.control:
-    default: op
+permissions:
+  weather.control:
+   default: op
